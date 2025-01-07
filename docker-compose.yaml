@@ -7,11 +7,11 @@ services:
       ACCEPT_EULA: 'Y'
     ports:
     - "1431:1433"
-    volumes:
+    # volumes:
     #- ./data/db1/data:/var/opt/mssql/data
     #- ./data/db1/log:/var/opt/mssql/log
     #- ./data/db1/secrets:/var/opt/mssql/secrets
-    - ./data/backup:/mnt/backup
+    # - ./data/backup:/mnt/backup
     healthcheck:
       test: /opt/mssql-tools18/bin/sqlcmd -C -S localhost -U sa -P ${MSSQL_SA_PASSWORD} -Q "SELECT 1" || exit 1
       interval: 10s
@@ -27,11 +27,11 @@ services:
       ACCEPT_EULA: 'Y'
     ports:
     - "1432:1433"
-    volumes:
+    # volumes:
     #- ./data/db2/data:/var/opt/mssql/data
     #- ./data/db2/log:/var/opt/mssql/log
     #- ./data/db2/secrets:/var/opt/mssql/secrets
-    - ./data/backup:/mnt/backup
+    # - ./data/backup:/mnt/backup
     healthcheck:
       test: /opt/mssql-tools18/bin/sqlcmd -C -S localhost -U sa -P ${MSSQL_SA_PASSWORD} -Q "SELECT 1" || exit 1
       interval: 10s
@@ -40,6 +40,7 @@ services:
       start_period: 30s
     networks:
       - dev_network      
+
   differ:
     image: differ
     build: ./docker_images/differ
@@ -50,7 +51,7 @@ services:
       - ./data/backup:/mnt/backup
       - ./:/workspace
       - /var/run/docker.sock:/var/run/docker.sock # Mount Docker socket
-    privileged: true # Required for Docker-in-Docker      
+    # privileged: true # Required for Docker-in-Docker      
     depends_on:
       - db1
       - db2
