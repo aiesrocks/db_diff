@@ -5,15 +5,39 @@
   "workspaceFolder": "/workspace",
   "extensions": [
     "ms-azuretools.vscode-docker",
-    "ms-python.python"
+    "ms-python.python",
+    "ms-mssql.mssql" // Add the SQL Server extension
   ],
   "settings": {
-    "terminal.integrated.defaultProfile.linux": "bash"
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "mssql.connections": [
+      {
+        "server": "db1",
+        "database": "master",
+        "user": "sa",
+        "password": "Qwerty123!",
+        "authenticationType": "SqlLogin",
+        "savePassword": true,
+        "options": {
+          "trustServerCertificate": true
+        }
+      },
+      {
+        "server": "db2",
+        "database": "master",
+        "user": "sa",
+        "password": "Qwerty123!",
+        "authenticationType": "SqlLogin",
+        "savePassword": true,
+        "options": {
+          "trustServerCertificate": true
+        }
+      }
+    ]
   },
   "remoteUser": "root",
   "runArgs": [
     "--privileged", // Required for Docker-in-Docker
     "-v", "/var/run/docker.sock:/var/run/docker.sock" // Mount Docker socket
   ]
-  // "postCreateCommand": "pip install -r requirements.txt"
 }
