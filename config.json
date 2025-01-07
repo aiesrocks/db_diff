@@ -1,0 +1,26 @@
+{
+    "db1": {
+        "dialect": "mssql",
+        "driver": "ODBC Driver 18 for SQL Server",
+        "username": "sa",
+        "password": "Qwerty123!",
+        "host": "db1",
+        "port": "1433",
+        "database": "master",
+        "trust_cert": "yes"
+    },
+    "db2": {
+        "dialect": "mssql",
+        "driver": "ODBC Driver 18 for SQL Server",
+        "username": "sa",
+        "password": "Qwerty123!",
+        "host": "db2",
+        "port": "1433",
+        "database": "master",
+        "trust_cert": "yes"
+    },
+    "tables": [
+        "Address",
+        "Person"
+    ]
+}

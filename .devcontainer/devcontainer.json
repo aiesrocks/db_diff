@@ -1,0 +1,19 @@
+{
+  "name": "db_diff",
+  "dockerComposeFile": "../docker-compose.yaml",
+  "service": "differ",
+  "workspaceFolder": "/workspace",
+  "extensions": [
+    "ms-azuretools.vscode-docker",
+    "ms-python.python"
+  ],
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "bash"
+  },
+  "remoteUser": "root",
+  "runArgs": [
+    "--privileged", // Required for Docker-in-Docker
+    "-v", "/var/run/docker.sock:/var/run/docker.sock" // Mount Docker socket
+  ]
+  // "postCreateCommand": "pip install -r requirements.txt"
+}
