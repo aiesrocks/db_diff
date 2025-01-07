@@ -1,4 +1,6 @@
 /data/backup/*.bak
-/data/*/*/*
-/generated/*
+/data/*/data/*
+/data/*/log/*
+/data/*/secrets/*
+/generated/*.sql
 **/*.bak
